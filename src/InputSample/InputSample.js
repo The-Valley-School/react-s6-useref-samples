@@ -21,8 +21,13 @@ const InputSample = () => {
     return (
         <div className="input-sample">
             <p>El valor actual es {name}</p>
-            <input ref={inputReference} type="text" placeholder="Introduce un nombre..." />
-            <button onClick={getInputValue} >Actualiza el valor</button>
+            <input autoFocus={true} ref={inputReference} type="text" placeholder="Introduce un nombre..." />
+            <p>
+                <button onClick={getInputValue} >Actualiza el valor</button>
+            </p>
+            <p>
+                <button onClick={ () => inputReference.current.focus() } >Hacer foco para rellenar input</button>
+            </p>
         </div>
     );
 }
