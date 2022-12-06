@@ -1,0 +1,12 @@
+.qr-generator {
+    display: block;
+    max-width: 500px;
+}
+
+form,
+label,
+input,
+button {
+    width: 100%;
+    margin-bottom: 10px;
+}
