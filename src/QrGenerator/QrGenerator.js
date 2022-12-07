@@ -3,34 +3,40 @@ import "./QrGenerator.css";
 import qrcode from "qrcode-generator";
 
 const QrGenerator = () => {
-    // Referencias
-    const inputReference = React.useRef();
-    const qrReference = React.useRef();
+    console.log("Ejecutado render QrGenerator");
 
-    // Funciones auxiliares
-    const sumbit = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        console.log("Prevenimos comportamiento por defecto");
-        generateQr();
-    }
+    // Estados
+    const [url, setUrl] = React.useState("");
+    const [border, setBorder] = React.useState(false);
 
-    const generateQr = () => {
+    // Efectos
+    React.useEffect(() => {
         const qr = qrcode(4, 'L');
-        qr.addData(inputReference.current.value);
+        qr.addData(url);
         qr.make();
         qrReference.current.innerHTML = qr.createImgTag();
-    }
+    }, [url]);
+
+    // Referencias
+    // const inputReference = React.useRef();
+    const qrReference = React.useRef();
 
     return (
         <div className="qr-generator">
-            <form onSubmit={sumbit}>
-                <label htmlFor="url">Introduce una URL:</label>
-                <input ref={inputReference} placeholder="https://google.es" name="url" id="url" type="text"/>
-                <button type="submit">Generar QR</button>
-            </form>
 
-            <div ref={qrReference} className="qr-generator__image"></div>
+            <label htmlFor="url">Introduce una URL:</label>
+
+            {/* Ejemplo de input recuperado por useRef */}
+            {/* <input ref={inputReference} placeholder="https://google.es" name="url" id="url" type="text"/> */}
+
+            {/* Ejemplo de input recuperado por onChange */}
+            <input onChange={(event) => setUrl(event.target.value)} placeholder="https://google.es" name="url" id="url" type="text" />
+
+            <div ref={qrReference} className={ `qr-generator__image ${ border ? 'qr-generator__image--border' : '' }` }></div>
+
+            <button onClick={() => setBorder(!border)}>Añadir / Quitar borde</button>
+
+            <div className="qr-generator__url">{url}</div>
         </div>
     );
 }

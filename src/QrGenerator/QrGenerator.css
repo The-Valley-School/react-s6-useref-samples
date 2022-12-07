@@ -10,3 +10,11 @@ button {
     width: 100%;
     margin-bottom: 10px;
 }
+
+.qr-generator__image {
+    border: 1px solid transparent;
+}
+
+.qr-generator__image--border {
+    border: 1px solid black;
+}
