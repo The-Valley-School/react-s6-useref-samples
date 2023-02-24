@@ -2,7 +2,7 @@
 
 En esta sesión vamos a trabajar con otro de los Hooks de React: UseRef
 
-[https://reactjs.org/docs/hooks-reference.html#useref](https://reactjs.org/docs/hooks-reference.html#useref) 
+<https://reactjs.org/docs/hooks-reference.html#useref>
 
 UseRef nos va a servir para referenciar elementos del DOM, la manera de usarlo es la siguiente.
 

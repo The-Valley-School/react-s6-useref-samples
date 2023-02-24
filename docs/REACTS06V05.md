@@ -2,7 +2,7 @@
 
 En este video vamos a realizar un pequeño generador de QRs, para ello lo primero que vamos a hacer es instalar la siguiente librería:
 
-[https://www.npmjs.com/package/qrcode-generator](https://www.npmjs.com/package/qrcode-generator) 
+<https://www.npmjs.com/package/qrcode-generator>
 
 Para ello ejecutaremos el comando:
 
